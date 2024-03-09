@@ -45,8 +45,9 @@ const SideBarContent = ({ onClose, ...rest }) => {
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
 
-      {LinkItems.map((link) => (
+      {LinkItems.map((link,index) => (
         <Link
+        key={index}
           to={link.name === "DashBoard" ? "/" : `/${link.name.toLowerCase()}`}
           onClick={() => onClose()}
         >

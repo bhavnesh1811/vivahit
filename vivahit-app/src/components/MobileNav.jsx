@@ -6,14 +6,17 @@ import {
   IconButton,
   Menu,
   MenuButton,
+  useBreakpointValue,
   useColorMode,
 } from "@chakra-ui/react";
 import React from "react";
 import { FiMenu } from "react-icons/fi";
 import { FaMoon, FaSun } from "react-icons/fa";
+import SearchBar from "./SearchBar";
 
 const MobileNav = ({ onOpen, ...rest }) => {
   const { colorMode, toggleColorMode } = useColorMode();
+  const isMobile = useBreakpointValue({ base: true, sm: false });
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -30,13 +33,15 @@ const MobileNav = ({ onOpen, ...rest }) => {
         variant="outline"
         aria-label="open menu"
         icon={<FiMenu />}
+        mr="8px"
       />
-
-      <HStack spacing={{ base: "0", md: "6" }}>
+      {!isMobile && <SearchBar />}
+      <HStack spacing={{ base: "2", md: "6" }} marginInline={isMobile?"":"16px"}>
+      {isMobile && <SearchBar />}
         <Button onClick={toggleColorMode}>
           {colorMode === "light" ? <FaMoon /> : <FaSun />}
         </Button>
-        <Flex alignItems={"center"}>
+        {!isMobile && <Flex alignItems={"center"}>
           <Menu>
             <MenuButton
               py={2}
@@ -48,7 +53,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
               </HStack>
             </MenuButton>
           </Menu>
-        </Flex>
+        </Flex>}
       </HStack>
     </Flex>
   );
