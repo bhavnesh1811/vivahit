@@ -13,8 +13,10 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const TableData = ({ currentPageData }) => {
+  const navigate = useNavigate();
   const { colorMode } = useColorMode();
   return (
     <TableContainer overflow={"hidden"}>
@@ -32,7 +34,7 @@ const TableData = ({ currentPageData }) => {
         <Tbody>
           {currentPageData &&
             currentPageData?.map((item, index) => (
-              <Tr key={index}>
+              <Tr cursor={"pointer"} key={index} onClick={() => navigate(`/coins/${item?.id}`)}>
                 <Td>{item?.market_cap_rank}</Td>
                 <Td>
                   <Flex gap="4px" alignItems={"center"}>

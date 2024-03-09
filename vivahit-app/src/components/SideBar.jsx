@@ -34,7 +34,7 @@ const Sidebar = () => {
       </Drawer>
 
       <MobileNav onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4" border={"1px solid red"}>
+      <Box ml={{ base: 0, md: 60 }} p="4">
         <AllRoutes />
       </Box>
     </Box>

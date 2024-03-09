@@ -1,20 +1,21 @@
 import React, { useContext, useState } from "react";
 import { Flex, List, ListItem, Button } from "@chakra-ui/react";
-import Loader from "./Loader";
+
 import TableData from "./TableData";
 import { useSearchParams } from "react-router-dom";
 import { DataContext } from "../context/DataContext";
+import Loader from "./Loader";
 
-const Pagination = ({ itemsPerPage = 5 }) => {
+const Pagination = ({ itemsPerPage = 7 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(
     parseInt(searchParams.get("page") || 1)
   );
-  const { data, loading: isLoading, error } = useContext(DataContext);
+  const { data, loading, error } = useContext(DataContext);
   const startIdx = (currentPage - 1) * itemsPerPage;
   const endIdx = startIdx + itemsPerPage;
   const currentPageData = data?.slice(startIdx, endIdx);
-
+  console.log(loading, error);
   const totalPages = Math.ceil(data?.length / itemsPerPage);
 
   const handlePageClick = (page) => {
@@ -64,10 +65,8 @@ const Pagination = ({ itemsPerPage = 5 }) => {
 
   return (
     <Flex direction="column" align="center">
-      {isLoading ? (
-        <>
-          <Loader />
-        </>
+      {loading ? (
+        <Loader />
       ) : (
         <>
           <TableData currentPageData={currentPageData} />
