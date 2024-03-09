@@ -5,7 +5,7 @@ import { getChartData, getSingleCoin } from "../api/api";
 import LineChart from "../components/LineChart";
 import Loader from "../components/Loader";
 import SelectDays from "../components/SelectDays";
-import { calculateData } from "../scripts/calculateDays";
+import { calculateData } from "../scripts/script";
 
 const SingleCoin = () => {
   const { id } = useParams();

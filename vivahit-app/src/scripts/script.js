@@ -37,3 +37,11 @@ export const calculateData = (days, date, index) => {
     });
   }
 };
+
+export const daysData = [
+  { days: "24h", value: 1 },
+  { days: "7d", value: 7 },
+  { days: "30d", value: 30 },
+  { days: "3m", value: 90 },
+  { days: "1y", value: 365 },
+];
