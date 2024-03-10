@@ -7,8 +7,8 @@ export const DataContext = createContext();
 const DataContextProvider = ({ children }) => {
 
   const { data, isLoading, error } = useQuery("myData", fetchData, {
-    staleTime: 120000,
-    refetchInterval: 120000,
+    staleTime: 30000,
+    refetchInterval: 30000,
   });
 
 
