@@ -1,6 +1,6 @@
 # Vivahit-App
 
-Welcome to Vivahit-App project! This project is built to develop a cryptocurrency dashboard where real time price updates happen after every 2 minutes. It is built using React, React-query ,Context-Api and Chakra UI for styling.
+Welcome to Vivahit App project! This project is built to develop a cryptocurrency dashboard where real-time price updates happen after every minute. It is built using React, React-Query, Context-Api and Chakra UI for styling.
 
 ## Deployed Link
 https://vivahit-app.vercel.app/
