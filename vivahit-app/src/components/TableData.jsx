@@ -19,7 +19,7 @@ const TableData = ({ currentPageData }) => {
   const navigate = useNavigate();
   const { colorMode } = useColorMode();
   return (
-    <TableContainer overflow={"hidden"}>
+    <TableContainer>
       <Table variant="simple">
         <Thead>
           <Tr>
