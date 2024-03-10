@@ -7,8 +7,8 @@ export const DataContext = createContext();
 const DataContextProvider = ({ children }) => {
 
   const { data, isLoading, error } = useQuery("myData", fetchData, {
-    staleTime: 3000000,
-    refetchInterval: 3000000, // Refetch data every 1 minute (60000 milliseconds)
+    staleTime: 120000,
+    refetchInterval: 120000,
   });
 
 
