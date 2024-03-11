@@ -11,11 +11,11 @@ const Pagination = ({ itemsPerPage = 7 }) => {
   const [currentPage, setCurrentPage] = useState(
     parseInt(searchParams.get("page") || 1)
   );
-  const { data, loading, error } = useContext(DataContext);
+  const { data, loading } = useContext(DataContext);
   const startIdx = (currentPage - 1) * itemsPerPage;
   const endIdx = startIdx + itemsPerPage;
   const currentPageData = data?.slice(startIdx, endIdx);
-  console.log(loading, error);
+
   const totalPages = Math.ceil(data?.length / itemsPerPage);
 
   const handlePageClick = (page) => {

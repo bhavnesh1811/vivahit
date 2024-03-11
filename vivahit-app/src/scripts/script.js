@@ -11,13 +11,13 @@ export const calculateData = (days, date, index) => {
     return date.toLocaleDateString("default", {
       weekday: "short",
       month: "short",
-      day: "numeric",
+      day: "2-digit",
     });
   } else if (days <= 30) {
     return index % 3 === 0
       ? date.toLocaleDateString("default", {
           month: "short",
-          day: "numeric",
+          day: "2-digit",
           year: "numeric",
         })
       : "";
@@ -25,14 +25,14 @@ export const calculateData = (days, date, index) => {
     return index % 7 === 0
       ? date.toLocaleDateString("default", {
           month: "short",
-          day: "numeric",
+          day: "2-digit",
           year: "numeric",
         })
       : "";
   } else {
     return date.toLocaleDateString("default", {
       month: "short",
-      day: "numeric",
+      day: "2-digit",
       year: "numeric",
     });
   }
